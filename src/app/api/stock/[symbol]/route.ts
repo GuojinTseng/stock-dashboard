@@ -7,7 +7,7 @@ export async function GET(
 ) {
   const { symbol } = await params;
   try {
-    const quote = await yahooFinance.quote(symbol.toUpperCase());
+    const quote = (await yahooFinance.quote(symbol.toUpperCase())) as any;
     return NextResponse.json({
       symbol: quote.symbol,
       name: quote.longName || quote.shortName || quote.symbol,

@@ -73,7 +73,7 @@ export default function StockChart({ symbol }: Props) {
       borderWidth: 1,
       titleColor: "#8892a4",
       bodyColor: "#e8eaf0",
-      bodyFont: { size: 14, weight: "600" as const },
+      bodyFont: { size: 14, weight: "bold" as const },
       padding: 12,
       callbacks: {
         label: (ctx: any) => ` $${ctx.raw.toFixed(2)}`,

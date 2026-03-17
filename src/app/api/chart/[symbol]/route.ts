@@ -17,10 +17,10 @@ export async function GET(
   const cfg = PERIOD_MAP[period] || PERIOD_MAP["3M"];
 
   try {
-    const result = await yahooFinance.historical(symbol.toUpperCase(), {
+    const result = (await yahooFinance.historical(symbol.toUpperCase(), {
       period1: cfg.period1,
-      interval: cfg.interval,
-    });
+      interval: cfg.interval as any,
+    })) as any[];
 
     const data = result.map((r) => ({
       date: r.date.toISOString().split("T")[0],
